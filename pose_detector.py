@@ -3,9 +3,13 @@ import mediapipe as mp
 
 class PoseDetector:
     def __init__(self):
-        self.pose = mp.solutions.pose.Pose(
+        self.mp_pose = mp.solutions.pose
+        self.pose = self.mp_pose.Pose(
+            static_image_mode=False,
+            model_complexity=1,
+            smooth_landmarks=True,
             min_detection_confidence=0.5,
-            min_tracking_confidence=0.5
+            min_tracking_confidence=0.5,
         )
 
     def detect(self, image):
