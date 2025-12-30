@@ -13,5 +13,5 @@ class PoseDetector:
         )
 
     def detect(self, image):
-        rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        return self.pose.process(rgb)
+        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        return self.pose.process(image_rgb)
